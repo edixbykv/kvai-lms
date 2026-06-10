@@ -123,14 +123,18 @@ async function main() {
     },
   });
 
-  // 4. Categories
+  // 4. Categories — Technology + Government Job Preparation
   const categoryData = [
-    { name: "Web Development", slug: "web-development", description: "Build modern websites & apps." },
-    { name: "Data Science & AI", slug: "data-science-ai", description: "Analytics, ML and AI skills." },
-    { name: "Digital Marketing", slug: "digital-marketing", description: "Grow brands online." },
-    { name: "Business & Management", slug: "business-management", description: "Leadership & strategy." },
-    { name: "Design", slug: "design", description: "UI/UX & graphic design." },
+    { name: "Web Development", slug: "web-development", description: "Build modern websites & web apps." },
+    { name: "Programming & Software", slug: "programming", description: "Languages, DSA & software engineering." },
+    { name: "Data Science & AI", slug: "data-science-ai", description: "Analytics, machine learning & AI." },
     { name: "Cloud & DevOps", slug: "cloud-devops", description: "Cloud infrastructure & automation." },
+    { name: "Cyber Security", slug: "cyber-security", description: "Ethical hacking & security." },
+    { name: "SSC Exams", slug: "ssc-exams", description: "SSC CGL, CHSL, MTS preparation." },
+    { name: "Banking & Insurance", slug: "banking-insurance", description: "IBPS, SBI, RBI exam prep." },
+    { name: "Railway (RRB)", slug: "railway-rrb", description: "RRB NTPC, Group D & ALP." },
+    { name: "UPSC & Civil Services", slug: "upsc-civil-services", description: "IAS / IPS foundation." },
+    { name: "Teaching Exams", slug: "teaching-exams", description: "CTET, TET, KVS & NVS." },
   ];
   const categories = new Map<string, string>();
   for (let i = 0; i < categoryData.length; i++) {
@@ -143,8 +147,9 @@ async function main() {
     categories.set(c.slug, cat.id);
   }
 
-  // 5. Courses with sections, lessons, quiz
+  // 5. Courses with sections, lessons, quiz — Tech + Govt Job (test/dummy data)
   const courseSeed = [
+    // ---------- Technology ----------
     {
       title: "Full-Stack Web Development Bootcamp",
       slug: "full-stack-web-development",
@@ -156,56 +161,120 @@ async function main() {
       requirements: ["A computer with internet", "No prior coding experience needed"],
     },
     {
-      title: "Python for Data Science & Machine Learning",
-      slug: "python-data-science-ml",
+      title: "Python Programming Masterclass",
+      slug: "python-programming-masterclass",
+      category: "programming",
+      subtitle: "Learn Python from scratch to advanced with real projects.",
+      price: 3999, discountPrice: 1799, level: "BEGINNER",
+      thumbnail: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=800&q=80",
+      outcomes: ["Python fundamentals", "OOP concepts", "File & API handling", "Build real projects"],
+      requirements: ["A computer with internet", "No prior coding experience needed"],
+    },
+    {
+      title: "Data Science & Machine Learning with Python",
+      slug: "data-science-machine-learning",
       category: "data-science-ai",
       subtitle: "Analyse data and build ML models with Python.",
       price: 5999, discountPrice: 2999, level: "INTERMEDIATE",
       thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      outcomes: ["Python programming", "Pandas & NumPy", "Build ML models", "Data visualization"],
-      requirements: ["Basic maths", "Laptop with Python installed"],
+      outcomes: ["Pandas & NumPy", "Data visualization", "Build ML models", "Model evaluation"],
+      requirements: ["Basic Python", "Basic maths"],
     },
     {
-      title: "Digital Marketing Masterclass 2026",
-      slug: "digital-marketing-masterclass",
-      category: "digital-marketing",
-      subtitle: "SEO, social media, ads and analytics end-to-end.",
-      price: 3999, discountPrice: 1499, level: "BEGINNER",
-      thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      outcomes: ["SEO fundamentals", "Run ad campaigns", "Social media strategy", "Marketing analytics"],
-      requirements: ["No prerequisites"],
-    },
-    {
-      title: "Introduction to Cloud Computing (Free)",
-      slug: "intro-cloud-computing",
+      title: "AWS Cloud & DevOps Essentials",
+      slug: "aws-cloud-devops-essentials",
       category: "cloud-devops",
-      subtitle: "Understand the cloud — completely free.",
-      price: 0, isFree: true, level: "BEGINNER",
+      subtitle: "Master AWS, CI/CD, Docker and deployment pipelines.",
+      price: 4999, discountPrice: 2499, level: "INTERMEDIATE",
       thumbnail: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80",
-      outcomes: ["Cloud concepts", "IaaS, PaaS, SaaS", "Major cloud providers"],
+      outcomes: ["Core AWS services", "Docker & containers", "CI/CD pipelines", "Infrastructure basics"],
+      requirements: ["Basic Linux knowledge"],
+    },
+    {
+      title: "Ethical Hacking & Cyber Security",
+      slug: "ethical-hacking-cyber-security",
+      category: "cyber-security",
+      subtitle: "Learn ethical hacking, network security and defence.",
+      price: 5499, discountPrice: 2799, level: "INTERMEDIATE",
+      thumbnail: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      outcomes: ["Network security", "Penetration testing basics", "Web app security", "Security best practices"],
+      requirements: ["Basic networking knowledge"],
+    },
+    {
+      title: "C Programming & Data Structures (Free)",
+      slug: "c-programming-data-structures",
+      category: "programming",
+      subtitle: "Strong fundamentals in C and DSA — completely free.",
+      price: 0, isFree: true, level: "BEGINNER",
+      thumbnail: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&q=80",
+      outcomes: ["C programming", "Arrays & pointers", "Linked lists & trees", "Sorting & searching"],
       requirements: ["Curiosity to learn"],
     },
+    // ---------- Government Job Preparation ----------
     {
-      title: "UI/UX Design Fundamentals",
-      slug: "ui-ux-design-fundamentals",
-      category: "design",
-      subtitle: "Design beautiful, usable interfaces.",
-      price: 4499, discountPrice: 1999, level: "BEGINNER",
-      thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-      outcomes: ["Design principles", "Figma proficiency", "Prototyping", "User research"],
+      title: "SSC CGL 2026 Complete Course",
+      slug: "ssc-cgl-2026-complete",
+      category: "ssc-exams",
+      subtitle: "Quant, Reasoning, English & GK for SSC CGL Tier 1 & 2.",
+      price: 2999, discountPrice: 1499, level: "ALL_LEVELS",
+      thumbnail: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
+      outcomes: ["Quantitative aptitude", "Logical reasoning", "English comprehension", "General awareness"],
+      requirements: ["Graduation (any stream)"],
+    },
+    {
+      title: "IBPS & SBI Bank PO / Clerk Complete",
+      slug: "ibps-sbi-bank-po-clerk",
+      category: "banking-insurance",
+      subtitle: "Prelims + Mains preparation for Bank PO & Clerk exams.",
+      price: 3499, discountPrice: 1799, level: "ALL_LEVELS",
+      thumbnail: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+      outcomes: ["Banking awareness", "Quantitative aptitude", "Reasoning ability", "English language"],
+      requirements: ["Graduation (any stream)"],
+    },
+    {
+      title: "RRB Railway NTPC & Group D",
+      slug: "rrb-railway-ntpc-group-d",
+      category: "railway-rrb",
+      subtitle: "Complete preparation for RRB NTPC and Group D exams.",
+      price: 2499, discountPrice: 1299, level: "BEGINNER",
+      thumbnail: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=80",
+      outcomes: ["Mathematics", "General intelligence", "General science", "Current affairs"],
+      requirements: ["10th / 12th pass"],
+    },
+    {
+      title: "UPSC Civil Services Foundation",
+      slug: "upsc-civil-services-foundation",
+      category: "upsc-civil-services",
+      subtitle: "Build a strong foundation for IAS / IPS preparation.",
+      price: 7999, discountPrice: 3999, level: "ADVANCED",
+      thumbnail: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80",
+      outcomes: ["Indian polity", "History & geography", "Economy basics", "Answer writing"],
+      requirements: ["Graduation (any stream)"],
+    },
+    {
+      title: "CTET Paper 1 & 2 Complete Course",
+      slug: "ctet-paper-1-2-complete",
+      category: "teaching-exams",
+      subtitle: "Child development, pedagogy & subjects for CTET.",
+      price: 1999, discountPrice: 999, level: "ALL_LEVELS",
+      thumbnail: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80",
+      outcomes: ["Child development", "Pedagogy", "Language proficiency", "Maths & EVS"],
+      requirements: ["12th / Graduation with D.El.Ed or B.Ed"],
+    },
+    {
+      title: "Current Affairs & General Awareness 2026 (Free)",
+      slug: "current-affairs-2026",
+      category: "ssc-exams",
+      subtitle: "Stay updated for all government exams — free course.",
+      price: 0, isFree: true, level: "ALL_LEVELS",
+      thumbnail: "https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800&q=80",
+      outcomes: ["National & international affairs", "Static GK", "Government schemes", "Sports & awards"],
       requirements: ["No prerequisites"],
     },
-    {
-      title: "Leadership & Team Management",
-      slug: "leadership-team-management",
-      category: "business-management",
-      subtitle: "Lead high-performing teams with confidence.",
-      price: 3499, discountPrice: 1799, level: "INTERMEDIATE",
-      thumbnail: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
-      outcomes: ["Leadership styles", "Team motivation", "Conflict resolution", "Performance management"],
-      requirements: ["Some work experience helpful"],
-    },
   ];
+
+  // Remove any off-topic legacy courses so the catalogue stays tech + govt focused
+  await prisma.course.deleteMany({ where: { slug: { notIn: courseSeed.map((c) => c.slug) } } });
 
   for (const c of courseSeed) {
     const course = await prisma.course.upsert({
