@@ -8,7 +8,14 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 function createClient() {
-  const adapter = new PrismaPg({ connectionString });
+  // Serverless-friendly pool: keep connections minimal so we never exhaust
+  // the database's connection limit across many function instances.
+  const adapter = new PrismaPg({
+    connectionString,
+    max: 1,
+    idleTimeoutMillis: 10_000,
+    connectionTimeoutMillis: 15_000,
+  });
   return new PrismaClient({ adapter });
 }
 
