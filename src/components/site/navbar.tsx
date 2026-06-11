@@ -19,7 +19,7 @@ export async function Navbar() {
   const isStaff = !!user && !!user.roleSlug && STAFF_ROLE_SLUGS.includes(user.roleSlug);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-white shadow-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
           <Logo />

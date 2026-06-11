@@ -51,7 +51,7 @@ export function DashboardShell({
   }
 
   const SidebarContent = (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col bg-white">
       <div className="flex h-16 items-center border-b border-border px-5">
         <Logo />
       </div>
@@ -100,8 +100,8 @@ export function DashboardShell({
       {/* Mobile drawer */}
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden" onClick={() => setOpen(false)}>
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute left-0 top-0 h-full w-64 bg-card shadow-xl" onClick={(e) => e.stopPropagation()}>
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute left-0 top-0 h-full w-64 bg-white shadow-xl" onClick={(e) => e.stopPropagation()}>
             <button className="absolute right-3 top-4 text-muted-foreground" onClick={() => setOpen(false)}><X className="h-5 w-5" /></button>
             {SidebarContent}
           </div>

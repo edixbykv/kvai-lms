@@ -22,9 +22,9 @@ export function MobileNav({ authed }: { authed: boolean }) {
         <Menu className="h-5 w-5" />
       </Button>
       {open && (
-        <div className="fixed inset-0 z-50 bg-black/40" onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-50 bg-black/50" onClick={() => setOpen(false)}>
           <div
-            className="absolute right-0 top-0 h-full w-72 bg-card p-5 shadow-xl animate-fade-in"
+            className="absolute right-0 top-0 h-full w-72 bg-white p-5 shadow-xl animate-fade-in"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between">
