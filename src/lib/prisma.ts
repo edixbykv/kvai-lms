@@ -12,9 +12,10 @@ function createClient() {
   // the database's connection limit across many function instances.
   const adapter = new PrismaPg({
     connectionString,
-    max: 1,
-    idleTimeoutMillis: 10_000,
+    max: 5,
+    idleTimeoutMillis: 60_000,
     connectionTimeoutMillis: 15_000,
+    keepAlive: true,
   });
   return new PrismaClient({ adapter });
 }
