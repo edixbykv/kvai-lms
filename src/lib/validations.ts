@@ -22,20 +22,24 @@ export const resetSchema = z.object({
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
+// NOTE: no `.default()` here on purpose — defaults are applied in the create
+// route. Using `.default()` would make `courseSchema.partial()` (used by the
+// edit/PATCH endpoint) inject those defaults for omitted fields, silently
+// resetting price/isFree/level/etc. on every partial update (data loss).
 export const courseSchema = z.object({
   title: z.string().min(3),
   subtitle: z.string().optional(),
   description: z.string().optional(),
   thumbnail: z.string().optional(),
-  price: z.number().min(0).default(0),
+  price: z.number().min(0).optional(),
   discountPrice: z.number().min(0).optional().nullable(),
-  isFree: z.boolean().default(false),
-  level: z.enum(["BEGINNER", "INTERMEDIATE", "ADVANCED", "ALL_LEVELS"]).default("ALL_LEVELS"),
-  language: z.string().default("English"),
+  isFree: z.boolean().optional(),
+  level: z.enum(["BEGINNER", "INTERMEDIATE", "ADVANCED", "ALL_LEVELS"]).optional(),
+  language: z.string().optional(),
   categoryId: z.string().optional().nullable(),
-  status: z.enum(["DRAFT", "PUBLISHED", "ARCHIVED"]).default("DRAFT"),
-  learningOutcomes: z.array(z.string()).default([]),
-  requirements: z.array(z.string()).default([]),
+  status: z.enum(["DRAFT", "PUBLISHED", "ARCHIVED"]).optional(),
+  learningOutcomes: z.array(z.string()).optional(),
+  requirements: z.array(z.string()).optional(),
 });
 
 export const roleSchema = z.object({
