@@ -2,6 +2,13 @@
 
 > A single document anyone can read to understand **what this project is, how it's built, and every feature it has.** Keep this updated as the project evolves.
 
+## 0. Live status
+
+- **Live:** https://learn.kvai.in (Vercel project `kvai-lms`, auto-deploy on push to `main`)
+- **Database:** Neon Postgres (serverless + connection pooling) — provisioned via the Vercel Marketplace integration, `DATABASE_URL` auto-injected. Migrations run locally with the unpooled URL; runtime uses the pooled URL.
+- **Repo:** https://github.com/edixbykv/kvai-lms
+- **Build:** `prisma generate && next build` (migrations are NOT run in the build).
+
 ## 1. What is this?
 
 **KVAI LMS** is a production-grade **Online Education SaaS platform** for `learn.kvai.in` (by KVAI Solutions). It sells and delivers online courses with two focus areas:
@@ -29,7 +36,7 @@ Permissions are **fully granular (25+)** and can be toggled per role. Super Admi
 
 - **Next.js 16 (App Router)** + React 19 + TypeScript
 - **Tailwind CSS v4** + custom shadcn-style component library (white + classic green theme)
-- **PostgreSQL + Prisma 7** (driver adapter) — 37 models
+- **Neon Postgres** (serverless, pooled) + **Prisma 7** (pg driver adapter) — 37 models
 - **JWT** auth (jose, httpOnly cookies) + **Google OAuth** + bcrypt + optional 2FA
 - **Recharts** for analytics
 - **Razorpay** payments (with simulated fallback when keys absent)

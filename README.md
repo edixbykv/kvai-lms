@@ -4,6 +4,19 @@ A complete, commercial-grade **Online Education SaaS Platform** for **learn.kvai
 
 This is a real, deployable product — not a demo or prototype. It ships with authentication, RBAC, a full course/learning system, quizzes & exams, verifiable certificates, payments, marketing tools, analytics dashboards, audit logging and a complete admin panel.
 
+## 🌐 Live
+
+| | |
+|---|---|
+| **Live site** | https://learn.kvai.in (also https://kvai-lms.vercel.app) |
+| **Hosting** | Vercel (project `kvai-lms`, auto-deploys on push to `main`) |
+| **Database** | **Neon Postgres** (serverless, pooled — provisioned via Vercel Marketplace) |
+| **Repo** | https://github.com/edixbykv/kvai-lms |
+
+**Demo logins:** `admin@kvai.in / Admin@123` (super admin) · `student@kvai.in / Student@123`
+
+> Catalogue currently holds **test/dummy courses** across Technology (Web Dev, Python, Data Science, Cloud/DevOps, Cyber Security) and Government job prep (SSC, Banking, Railway, UPSC, Teaching). Payment/Google/email/storage integrations run in safe fallback mode until real keys are added by the buyer.
+
 ---
 
 ## ✨ Features
@@ -42,7 +55,7 @@ Home, Courses, Course detail, About, Contact, Blog, FAQ, Privacy, Terms, Certifi
 | Framework | **Next.js 16** (App Router) + **React 19** + **TypeScript** |
 | Styling | **Tailwind CSS v4** + custom shadcn-style UI components |
 | Backend | Next.js Route Handlers (REST APIs) |
-| Database | **PostgreSQL** + **Prisma 7** (driver adapter) |
+| Database | **Neon Postgres** (serverless, pooled) + **Prisma 7** (pg driver adapter) |
 | Auth | **JWT** (jose, httpOnly cookies) + **Google OAuth** + bcrypt |
 | Charts | Recharts |
 | Payments | **Razorpay** (with simulated fallback) |
